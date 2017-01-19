@@ -17,6 +17,7 @@ public class LynchSwapLabelsFrame extends JFrame {
 	private final JLabel lblHello = new JLabel("Hello");
 	private final JLabel lblGoodbye = new JLabel("Goodbye");
 	private final JButton btnSwap = new JButton("Swap");
+	private final JButton btnHide = new JButton("Hide");
 
 	/**
 	 * Launch the application.
@@ -63,14 +64,27 @@ public class LynchSwapLabelsFrame extends JFrame {
 				do_btnSwap_actionPerformed(arg0);
 			}
 		});
-		btnSwap.setBounds(174, 206, 89, 23);
+		btnSwap.setBounds(173, 164, 89, 23);
 		
 		contentPane.add(btnSwap);
+		btnHide.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				do_btnHide_actionPerformed(arg0);
+			}
+		});
+		btnHide.setBounds(173, 195, 89, 23);
+		
+		contentPane.add(btnHide);
 	}
 	protected void do_btnSwap_actionPerformed(ActionEvent arg0) {
 		
 		String hello =  lblHello.getText();
 		lblHello.setText(lblGoodbye.getText());
 		lblGoodbye.setText(hello);
+	}
+	protected void do_btnHide_actionPerformed(ActionEvent arg0) {
+		
+		lblHello.setVisible(!lblHello.isVisible());
+		
 	}
 }
